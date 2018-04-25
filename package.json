@@ -1,0 +1,16 @@
+{
+  "name": "backbonebackup",
+  "version": "0.0.1",
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  },
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "dropbox": "^4.0.3",
+    "isomorphic-fetch": "^2.2.1",
+    "karhu": "^1.1.0"
+  },
+  "scripts": {
+    "start": "node app"
+  }
+}
