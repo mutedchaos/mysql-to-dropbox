@@ -17,16 +17,17 @@ async function run() {
     mysqlPassword = getEnv('MYSQL_PASSWORD'),
     mysqlDatabase = getEnv('MYSQL_DATABASE')
 
+  log.info('Dumping database')
   await new Promise((resolve, reject) => cp.exec(`mysqldump -u${mysqlUsername} -p${mysqlPassword} ${mysqlDatabase}| gzip > /tmp/backbone.sql.gz`, (err, stdout, stderr) => {
     if (err) reject(err)
     else if (stderr.trim().replace('mysqldump: [Warning] Using a password on the command line interface can be insecure.', '')) reject(new Error(stderr))
     else resolve()
   }))
 
-  const dropbox = new Dropbox({accessToken})
 
   const contents = fs.readFileSync('/tmp/backbone.sql.gz')
 
+  const dropbox = new Dropbox({accessToken})
   const uploadInfo = {
     contents,
     path: '/backbone.sql.gz',
@@ -36,6 +37,7 @@ async function run() {
     mute: true,
 
   }
+  log.info('Uploading to dropbox')
   const response = await dropbox.filesUpload(uploadInfo)
 
   log.info(response)
