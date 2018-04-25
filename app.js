@@ -38,9 +38,8 @@ async function run() {
 
   }
   log.info('Uploading to dropbox')
-  const response = await dropbox.filesUpload(uploadInfo)
-
-  log.info(response)
+  
+  await dropbox.filesUpload(uploadInfo)
 
   log.info('Done.')
 }
