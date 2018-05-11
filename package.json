@@ -11,6 +11,6 @@
     "karhu": "^1.1.0"
   },
   "scripts": {
-    "start": "n use latest app"
+    "start": "n use $(ls /usr/local/n/versions/node | sort --version-sort | tail -n1) app"
   }
 }
