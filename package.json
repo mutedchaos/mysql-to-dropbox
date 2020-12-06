@@ -1,16 +1,19 @@
 {
-  "name": "backbonebackup",
+  "name": "mysql-to-dropbox",
+  "license": "ISC",
+  "author": "Tapani Haka <tapani.haka@gmail.com>",
+  "repository": "mysql-to-dropbox-backup",
   "version": "0.0.1",
   "devDependencies": {
     "eslint": "^4.19.1"
   },
   "dependencies": {
-    "dotenv": "^5.0.1",
-    "dropbox": "^4.0.3",
-    "isomorphic-fetch": "^2.2.1",
-    "karhu": "^1.1.0"
+    "dotenv": "^8.2.0",
+    "dropbox": "^8.2.0",
+    "karhu": "^1.5.1",
+    "mysqldump": "^3.2.0"
   },
   "scripts": {
-    "start": "n use $(ls /usr/local/n/versions/node | sort --version-sort | tail -n1) app"
+    "start": "node app"
   }
 }
